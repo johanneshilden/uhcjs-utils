@@ -10,10 +10,10 @@ import Util.Handlebars
 
 import qualified Util.DOM                  as U
 
-data Person = P { name :: JSString }
+data Person = P { name :: !JSString }
 
 data PersonList = PL 
-    { people :: Collection Person }
+    { people :: !(Collection Person) }
 
 testTemplate :: IO ()
 testTemplate = do
@@ -39,7 +39,7 @@ main = do
         -- Run tests
         testTemplate
         testCollections
-  >>= onLoad
+    >>= onLoad
 
 -- Some helper functions for the examples
 
