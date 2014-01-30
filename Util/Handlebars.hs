@@ -13,8 +13,8 @@ import Language.UHC.JS.Primitives
 import Language.UHC.JS.Types
 import Language.UHC.JS.W3C.HTML5
 
--- | Compile a template. Returns a template function, which is applied 
--- a context object to produce the final HTML output.
+-- | Compile a template. Returns a template function, which is to be
+-- applied a context object to produce the final HTML output.
 compile :: String                   -- ^ The raw template
         -> IO (JSPtr a -> IO String)
 compile source = (_compile $ toJS source) >>= return . go . mkFun
