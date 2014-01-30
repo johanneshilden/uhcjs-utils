@@ -23,13 +23,13 @@ defRoute = alert "default"
 main :: IO ()
 main = do
     wrap $ setMap
-        [ -- /page/:id
+        [ -- #/page/:id
           "page" ~/~ showPage
-          -- /static-page
+          -- #/static-page
         , "static-page" /~/ staticP
-          -- /show/me/the/page
+          -- #/show/me/the/page
         , "show" /// "me" /// "the" /// "page" /~/ staticP2
-          -- /post/:pid/comment/:cid
+          -- #/post/:pid/comment/:cid
         , "post" </< \p -> "comment" ~/~ \c -> showComment p c
           -- default route
         ] defRoute
